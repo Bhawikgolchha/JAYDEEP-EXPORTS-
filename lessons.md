@@ -1,5 +1,21 @@
 # Lessons
 
+## 2026-08-09 - Video looped on desktop and stopped dead on phones
+
+Three faults stacked, and desktop Chrome hid all three. `play()` was called in the
+IntersectionObserver callback immediately after `setNear(true)`, so it ran one render
+before the `<source>` children existed: the promise rejected, the `.catch(() => {})`
+swallowed it, and nothing retried. Desktop still played because inserting a `<source>`
+into a `NETWORK_EMPTY` element triggers resource selection and Chrome will start a muted
+clip unprompted. Mobile autoplay policy will not. On top of that, `preload="none"` plus
+`loop` is a known iOS Safari failure: it reaches the end and stops on the last frame
+instead of seeking back. Learned: a swallowed promise rejection on a media element is
+where this class of bug hides, and "works on desktop" is not evidence for autoplay or
+looping. Prevention: call `play()` from an effect that runs after the sources render,
+call `load()` explicitly, and keep an `ended` handler that resets `currentTime` as a
+fallback beneath the `loop` attribute. Test the loop by seeking to `duration - 0.25` and
+asserting the time wraps, and test the iOS path by setting `loop = false` first.
+
 ## 2026-08-09 - Negative scale on a THREE geometry inverts lighting
 
 Flipping SVG-derived geometry with `geo.scale(0.01, -0.01, 0.01)` mirrored it, which

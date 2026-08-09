@@ -11,7 +11,7 @@ export function Hero() {
     <section id="top" className="relative min-h-[100dvh] w-full">
       <Stage
         poster="/video/hero-wall-poster.webp"
-        video={{ mp4: '/video/hero-wall.mp4', webm: '/video/hero-wall.webm' }}
+        video="hero-wall"
         alt="Sunlight passing through a terracotta jali wall and printing its pattern across a dark floor"
         className="absolute inset-0"
       >

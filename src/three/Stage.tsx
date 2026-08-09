@@ -1,4 +1,5 @@
 import { Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Clip } from '../components/Clip'
 
 // Gate in front of every canvas on this page.
 //
@@ -23,8 +24,8 @@ function hasWebGL(): boolean {
 
 type Props = {
   poster: string
-  /** shown instead of the canvas when WebGL is unavailable */
-  video?: { mp4: string; webm: string }
+  /** clip name shown instead of the canvas when WebGL is unavailable */
+  video?: string
   alt: string
   children: ReactNode
   className?: string
@@ -83,21 +84,12 @@ export function Stage({ poster, video, alt, children, className = '' }: Props) {
           </div>
         </Suspense>
       ) : (
-        near &&
         video && (
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            poster={poster}
-            muted
-            loop
-            playsInline
-            autoPlay
-            preload="none"
-            aria-label={alt}
-          >
-            <source src={video.webm} type="video/webm" />
-            <source src={video.mp4} type="video/mp4" />
-          </video>
+          // same component as every other clip on the page, so the loop fix lives in
+          // exactly one place
+          <div className="absolute inset-0">
+            <Clip name={video} alt={alt} />
+          </div>
         )
       )}
     </div>
