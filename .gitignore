@@ -1,0 +1,9 @@
+node_modules
+dist
+.playwright-mcp
+*.local
+
+# Original posters, clips and the business card. Kept locally, not in the repo:
+# roughly 75 MB of source material that only the prep scripts read. The web
+# derivatives in public/ are committed, and those are what deploys.
+assets-source
