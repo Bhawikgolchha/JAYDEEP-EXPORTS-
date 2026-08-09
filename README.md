@@ -11,12 +11,21 @@ npm run preview  # serve the built site
 
 `dist/` is static. Any host works: Netlify, Vercel, Cloudflare Pages, or plain nginx.
 
-## Before this goes live
+## Deploying
 
-**Fill in `src/data/contact.ts`.** Phone, email, and the WhatsApp number if it differs
-from the phone. Until those are set, the contact block says the details are coming and
-the enquiry form's submit button is disabled on purpose, so nothing typed into it is
-silently lost. Nothing else needs touching to ship.
+Vercel auto-detects Vite. Import the repo, take the defaults (`npm run build`, output
+`dist`), deploy. No environment variables, no server, no build-time secrets.
+
+## Contact details
+
+All in `src/data/contact.ts`, transcribed from the company business card: Gautam
+Bhansali, both cell numbers, both email addresses, the Morbi address, and the
+manufacturing arm (National Potteries, 1967). The enquiry form opens a pre-filled mail
+draft to the first address; there is no backend.
+
+One thing to confirm: the card prints `jaydeepexporrts@gmail.com` with a **double r**.
+That is shipped exactly as printed. If it is a misprint on the card, fix it in
+`contact.ts` and it updates everywhere, including the structured data.
 
 ## What the page claims
 
