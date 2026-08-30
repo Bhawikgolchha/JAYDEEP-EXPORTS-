@@ -5,19 +5,28 @@ import { PRODUCTS } from '../data/products'
 import { sun, setSunManual } from '../hooks/useSun'
 import { SunSlider } from '../components/SunSlider'
 import { DimensionBracket } from '../components/DimensionBracket'
+import { FINISH_CONFIGS, type ClayFinish } from '../three/JaliGeometry'
 
 const ViewerScene = lazy(() => import('../three/ViewerScene'))
 
-// A poster can show you the face of a tile. It cannot show you the thickness, and
-// thickness is the whole mechanism: it is what cuts glare and what makes the shadow
-// crawl instead of sitting still. So this section is the one place with a real tile
-// and a real sun you can move by hand.
+const SUN_PRESETS = [
+  { label: 'Morning', value: 0.15, time: '08:30' },
+  { label: 'Noon', value: 0.5, time: '12:00' },
+  { label: 'Golden Hour', value: 0.82, time: '17:00' },
+  { label: 'Dusk', value: 0.95, time: '18:45' },
+]
 
 export function PatternViewer() {
   const [pattern, setPattern] = useState<PatternId>('star')
+  const [finish, setFinish] = useState<ClayFinish>('natural')
   const product = PRODUCTS.find((p) => p.pattern === pattern)
 
   useEffect(() => () => setSunManual(false), [])
+
+  const selectSunPreset = (v: number) => {
+    setSunManual(true)
+    sun.set(v)
+  }
 
   return (
     <section id="patterns" className="px-4 pb-24 sm:px-6 md:pb-32">
@@ -30,13 +39,57 @@ export function PatternViewer() {
           <div className="md:sticky md:top-24 md:self-start">
             <Stage
               poster={`/posters/${product?.slug ?? 'star'}-thumb.webp`}
-              alt={`${PATTERNS[pattern].label} terracotta jali tile, rotating in daylight`}
+              alt={`${PATTERNS[pattern].label} terracotta jali tile in ${FINISH_CONFIGS[finish].label}, rotating in daylight`}
               className="relative aspect-[4/3] w-full border border-kiln-3 sm:aspect-[16/11]"
             >
-              <ViewerScene pattern={pattern} />
+              <ViewerScene pattern={pattern} finish={finish} />
             </Stage>
 
             <SunSlider />
+
+            {/* Sun Time of Day Presets */}
+            <div className="mt-3 flex flex-wrap items-center gap-2 border border-kiln-3 bg-kiln p-2">
+              <span className="t-spec px-1 text-xs text-bone-dim">LIGHT PRESETS:</span>
+              {SUN_PRESETS.map((sp) => (
+                <button
+                  key={sp.label}
+                  type="button"
+                  onClick={() => selectSunPreset(sp.value)}
+                  className="border border-kiln-3 px-2 py-1 text-xs text-bone hover:border-ember hover:bg-kiln-2 transition-colors"
+                >
+                  {sp.label} <span className="text-bone-dim font-mono text-[10px]">({sp.time})</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Clay Material Finish Selection */}
+            <div className="mt-4 border border-kiln-3 bg-kiln p-3">
+              <p className="t-spec text-xs text-bone-dim mb-2">CLAY MATERIAL FINISH:</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {(Object.keys(FINISH_CONFIGS) as ClayFinish[]).map((fKey) => {
+                  const conf = FINISH_CONFIGS[fKey]
+                  const active = finish === fKey
+                  return (
+                    <button
+                      key={fKey}
+                      type="button"
+                      onClick={() => setFinish(fKey)}
+                      className={`flex items-center gap-2 border px-2 py-1.5 text-xs text-left transition-all ${
+                        active
+                          ? 'border-ember bg-kiln-2 text-bone'
+                          : 'border-kiln-3 text-bone-dim hover:border-bone-dim'
+                      }`}
+                    >
+                      <span
+                        className="h-3 w-3 rounded-full shrink-0"
+                        style={{ backgroundColor: conf.hex }}
+                      />
+                      <span>{conf.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           <div>

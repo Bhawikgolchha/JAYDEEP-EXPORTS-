@@ -51,11 +51,21 @@ export function disposeJaliGeometry() {
   cache.clear()
 }
 
-/** unglazed fired clay: matte, slightly rough, no metal, no gloss */
-export function clayMaterial() {
+export type ClayFinish = 'natural' | 'smoked' | 'sand' | 'ochre'
+
+export const FINISH_CONFIGS: Record<ClayFinish, { label: string; hex: string; roughness: number }> = {
+  natural: { label: 'Natural Clay', hex: '#b4552c', roughness: 0.92 },
+  smoked: { label: 'Smoked Charcoal', hex: '#38302b', roughness: 0.88 },
+  sand: { label: 'Sun-baked Sand', hex: '#cb9a6f', roughness: 0.94 },
+  ochre: { label: 'Warm Ochre', hex: '#c47936', roughness: 0.86 },
+}
+
+/** unglazed fired clay: matte, slightly rough, no metal, finish configurable */
+export function clayMaterial(finish: ClayFinish = 'natural') {
+  const conf = FINISH_CONFIGS[finish] || FINISH_CONFIGS.natural
   return new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#b4552c'),
-    roughness: 0.92,
+    color: new THREE.Color(conf.hex),
+    roughness: conf.roughness,
     metalness: 0,
     flatShading: false,
   })

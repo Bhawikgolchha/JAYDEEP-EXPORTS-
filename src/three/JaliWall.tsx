@@ -64,13 +64,15 @@ export function JaliWall({ quality }: { quality: 'low' | 'high' }) {
     })
   }, [cols, rows])
 
-  // the wall turns a couple of degrees across the day, so the parallax reads as the
-  // sun moving rather than as an object spinning
-  useFrame(() => {
+  // the wall turns subtly with mouse pointer and day sun position
+  useFrame((state) => {
     if (!group.current) return
-    // held off square on purpose. straight on, a repeating wall reads as wallpaper;
-    // a few degrees of turn gives the blocks their thickness back.
-    group.current.rotation.y = -0.2 + (sun.get() - 0.5) * 0.12
+    const px = state.pointer.x * 0.07
+    const py = state.pointer.y * 0.04
+    const targetY = -0.2 + (sun.get() - 0.5) * 0.12 + px
+    const targetX = -py
+    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, targetY, 0.05)
+    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, targetX, 0.05)
   })
 
   return (
@@ -81,6 +83,8 @@ export function JaliWall({ quality }: { quality: 'low' | 'high' }) {
         mapSize={quality === 'high' ? 2048 : 1024}
         extent={Math.max(viewport.width, viewport.height) * 0.8}
       />
+
+      <SunMotes count={quality === 'high' ? 70 : 35} />
 
       <group ref={group} scale={tile}>
         {BANDS.map((id, i) => (
@@ -115,5 +119,45 @@ export function JaliWall({ quality }: { quality: 'low' | 'high' }) {
         </mesh>
       </group>
     </>
+  )
+}
+
+function SunMotes({ count }: { count: number }) {
+  const points = useMemo(() => {
+    const p = new Float32Array(count * 3)
+    for (let i = 0; i < count; i++) {
+      p[i * 3] = (Math.random() - 0.5) * 14
+      p[i * 3 + 1] = (Math.random() - 0.5) * 9
+      p[i * 3 + 2] = (Math.random() - 0.5) * 6
+    }
+    return p
+  }, [count])
+
+  const ref = useRef<THREE.Points>(null)
+
+  useFrame((_, delta) => {
+    if (!ref.current) return
+    ref.current.rotation.y += delta * 0.012
+    ref.current.rotation.x += delta * 0.006
+  })
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={count}
+          array={points}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.038}
+        color="#df8a5a"
+        transparent
+        opacity={0.35}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
   )
 }

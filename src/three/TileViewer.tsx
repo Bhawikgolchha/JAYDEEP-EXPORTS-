@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react'
 import { extend, useFrame, useThree, type ReactThreeFiber } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from 'three'
-import { jaliGeometry, clayMaterial } from './JaliGeometry'
+import { jaliGeometry, clayMaterial, type ClayFinish } from './JaliGeometry'
 import { SunRig } from './SunRig'
 import { sun } from '../hooks/useSun'
 import type { PatternId } from '../data/patterns'
@@ -40,15 +40,17 @@ function Orbit() {
 
 export function TileViewer({
   pattern,
+  finish = 'natural',
   quality,
   spin,
 }: {
   pattern: PatternId
+  finish?: ClayFinish
   quality: 'low' | 'high'
   spin: boolean
 }) {
   const geo = useMemo(() => jaliGeometry(pattern), [pattern])
-  const mat = useMemo(() => clayMaterial(), [])
+  const mat = useMemo(() => clayMaterial(finish), [finish])
   const tile = useRef<THREE.Mesh>(null)
 
   // The tile does not spin. A continuous turn means that at any given second it can be

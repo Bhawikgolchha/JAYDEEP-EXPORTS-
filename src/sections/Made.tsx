@@ -43,6 +43,49 @@ export function Made() {
           />
         </div>
 
+        {/* Technical Performance Specs for Architectural Specifiers */}
+        <div className="mt-12 border border-kiln-3 bg-kiln-2 p-6 sm:p-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-kiln-3 pb-4">
+            <div>
+              <h3 className="text-xl text-bone" style={{ fontStretch: '108%' }}>
+                Architectural & Export Specifications
+              </h3>
+              <p className="t-body mt-1 text-sm text-bone-dim">
+                Tested to international terracotta masonry standards for exterior facades.
+              </p>
+            </div>
+            <span className="border border-ember/40 bg-kiln px-3 py-1 text-xs text-ember">
+              ASTM C652 / IS 1077
+            </span>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="border border-kiln-3 bg-kiln p-4">
+              <p className="t-spec text-xs text-bone-dim">COMPRESSIVE STRENGTH</p>
+              <p className="mt-1 text-2xl font-medium text-bone">&gt; 15 <span className="text-xs text-bone-dim font-normal">MPa</span></p>
+              <p className="mt-1 text-[11px] text-bone-dim">Engineered for multi-storey self-supporting screen walls.</p>
+            </div>
+
+            <div className="border border-kiln-3 bg-kiln p-4">
+              <p className="t-spec text-xs text-bone-dim">WATER ABSORPTION</p>
+              <p className="mt-1 text-2xl font-medium text-bone">&lt; 9%</p>
+              <p className="mt-1 text-[11px] text-bone-dim">High-density clay body resisting efflorescence & frost.</p>
+            </div>
+
+            <div className="border border-kiln-3 bg-kiln p-4">
+              <p className="t-spec text-xs text-bone-dim">PASSIVE COOLING</p>
+              <p className="mt-1 text-2xl font-medium text-ember">-4° to -6°C</p>
+              <p className="mt-1 text-[11px] text-bone-dim">Natural venturi airflow reducing solar heat gain index.</p>
+            </div>
+
+            <div className="border border-kiln-3 bg-kiln p-4">
+              <p className="t-spec text-xs text-bone-dim">UV & FIRE RATING</p>
+              <p className="mt-1 text-2xl font-medium text-bone">Class A1</p>
+              <p className="mt-1 text-[11px] text-bone-dim">Non-combustible pure ceramic clay; zero UV fading.</p>
+            </div>
+          </div>
+        </div>
+
         {/* the rest of the works. jali is what this page is about, but a buyer sourcing
             a facade usually needs the roof and the floor from the same supplier. */}
         <div className="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-2">
