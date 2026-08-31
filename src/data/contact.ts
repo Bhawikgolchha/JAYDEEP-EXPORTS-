@@ -45,3 +45,6 @@ export const addressOneLine = [
   `${CONTACT.address.city} ${CONTACT.address.postalCode}`,
   `${CONTACT.address.region}, ${CONTACT.address.country}`,
 ].join(', ')
+
+// Re-export RFQ state types & helpers for convenience
+export * from './rfqState'

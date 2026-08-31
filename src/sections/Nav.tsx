@@ -1,3 +1,5 @@
+import { useRfqCart } from '../data/rfqState'
+
 // One line, 64px, and it stays that way at every width. Three links is all this page
 // has, so there is no hamburger to build and nothing to hide behind one.
 
@@ -8,6 +10,8 @@ const LINKS = [
 ]
 
 export function Nav() {
+  const { items, openDrawer } = useRfqCart()
+
   return (
     <header className="fixed inset-x-0 top-0 z-30 h-16 bg-kiln/72 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6">
@@ -23,7 +27,7 @@ export function Nav() {
           </span>
         </a>
 
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-5">
           <ul className="hidden items-center gap-5 sm:flex">
             {LINKS.map((l) => (
               <li key={l.href}>
@@ -37,6 +41,21 @@ export function Nav() {
               </li>
             ))}
           </ul>
+
+          <button
+            type="button"
+            onClick={openDrawer}
+            className="flex items-center gap-1.5 border border-kiln-3 bg-kiln-2 px-2.5 py-1.5 text-xs text-bone transition-colors hover:border-ember hover:text-ember"
+            style={{ fontStretch: '92%' }}
+            aria-label={`Open RFQ Drawer (${items.length} items)`}
+          >
+            <span>RFQ Cart</span>
+            {items.length > 0 && (
+              <span className="flex h-4 min-w-4 items-center justify-center bg-ember px-1 text-[10px] font-bold text-white">
+                {items.length}
+              </span>
+            )}
+          </button>
 
           <a
             href="#enquire"

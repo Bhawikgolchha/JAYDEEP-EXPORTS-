@@ -7,3 +7,5 @@ dist
 # roughly 75 MB of source material that only the prep scripts read. The web
 # derivatives in public/ are committed, and those are what deploys.
 assets-source
+.agents
+test-results

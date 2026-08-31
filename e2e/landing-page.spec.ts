@@ -41,8 +41,8 @@ test.describe('Jaydeep Exports 3D Architectural Landing Page', () => {
     await heightInput.fill('10')
 
     // Expect container load metric to be visible
-    await expect(page.locator('text=20FT CONTAINER')).toBeVisible()
-    await expect(page.locator('text=EST. WEIGHT')).toBeVisible()
+    await expect(page.locator('text=20FT CONTAINER').first()).toBeVisible()
+    await expect(page.locator('text=EST. WEIGHT').first()).toBeVisible()
 
     // Test Unit toggle (Feet to Meters)
     const metersBtn = page.getByRole('button', { name: 'Meters (m)' })
@@ -56,18 +56,18 @@ test.describe('Jaydeep Exports 3D Architectural Landing Page', () => {
     await expect(form).toBeVisible()
 
     // Submit empty form
-    const submitBtn = form.getByRole('button', { name: 'Enquire' })
+    const submitBtn = form.getByRole('button', { name: /Enquire/i })
     await submitBtn.click()
 
     // Assert validation errors appear
-    await expect(page.locator('text=Add your name')).toBeVisible()
-    await expect(page.locator('text=Add a country')).toBeVisible()
+    await expect(page.locator('text=Add your name').first()).toBeVisible()
+    await expect(page.locator('text=Add a country').first()).toBeVisible()
   })
 
   test('Technical specifications and ASTM C652 certifications are present', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('text=ASTM C652')).toBeVisible()
-    await expect(page.locator('text=COMPRESSIVE STRENGTH')).toBeVisible()
-    await expect(page.locator('text=PASSIVE COOLING')).toBeVisible()
+    await expect(page.locator('text=ASTM C652').first()).toBeVisible()
+    await expect(page.locator('text=COMPRESSIVE STRENGTH').first()).toBeVisible()
+    await expect(page.locator('text=PASSIVE COOLING').first()).toBeVisible()
   })
 })
