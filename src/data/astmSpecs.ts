@@ -61,7 +61,7 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Compressive Strength',
     standard: 'ASTM C67 / IS 3495 (Part 1)',
-    testedValue: '15.0 – 25.4 MPa (Avg 22.8 MPa)',
+    testedValue: '15.0  -  25.4 MPa (Avg 22.8 MPa)',
     requirement: 'Min 10.3 MPa (Grade SW)',
     unit: 'MPa',
     status: 'EXCEEDS',
@@ -70,7 +70,7 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Water Absorption (5-Hour Boil)',
     standard: 'ASTM C67 / IS 3495 (Part 2)',
-    testedValue: '7.8% – 8.8% (Avg 8.3%)',
+    testedValue: '7.8%  -  8.8% (Avg 8.3%)',
     requirement: 'Max 17.0% (Grade SW)',
     unit: '%',
     status: 'EXCEEDS',
@@ -79,7 +79,7 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Water Absorption (24-Hour Submersion)',
     standard: 'ASTM C67',
-    testedValue: '5.6% – 6.4%',
+    testedValue: '5.6%  -  6.4%',
     requirement: 'Max 13.0%',
     unit: '%',
     status: 'PASS',
@@ -88,7 +88,7 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Saturation Coefficient (C/B Ratio)',
     standard: 'ASTM C67',
-    testedValue: '0.72 – 0.76',
+    testedValue: '0.72  -  0.76',
     requirement: 'Max 0.78',
     status: 'PASS',
     description: 'Guarantees resistance to frost spalling in freezing freeze-thaw climates.',
@@ -112,25 +112,25 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Bulk Density',
     standard: 'ASTM C67',
-    testedValue: '1,950 kg/m³ (1.95 g/cm³)',
-    requirement: 'Min 1,800 kg/m³',
-    unit: 'kg/m³',
+    testedValue: '1,950 kg/m -  (1.95 g/cm - )',
+    requirement: 'Min 1,800 kg/m - ',
+    unit: 'kg/m - ',
     status: 'PASS',
     description: 'Solid heavy-mass terracotta providing thermal flywheel dampening and acoustic attenuation.',
   },
   {
     property: 'Passive Cooling Reduction',
     standard: 'Thermal Cavity Test / CFD Aerodynamic',
-    testedValue: '-4°C to -6°C indoor temp drop',
+    testedValue: '-4 - C to -6 - C indoor temp drop',
     requirement: 'Solar heat gain reduction',
-    unit: '°C',
+    unit: ' - C',
     status: 'CERTIFIED',
     description: 'Venturi aerodynamic micro-cooling: ambient air accelerates through tapered perforations, dissipating facade heat.',
   },
   {
     property: 'Modulus of Rupture (Flexural)',
     standard: 'ASTM C67 / IS 3495 (Part 4)',
-    testedValue: '2.85 – 3.40 MPa',
+    testedValue: '2.85  -  3.40 MPa',
     requirement: 'Min 1.50 MPa',
     unit: 'MPa',
     status: 'EXCEEDS',
@@ -142,7 +142,7 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
     testedValue: '0% Weight Loss / 0 Spalling',
     requirement: 'Max 3.0% loss',
     status: 'CERTIFIED',
-    description: 'Validated for 50 severe freeze-thaw cycles (-20°C to +20°C) with zero edge crumbling.',
+    description: 'Validated for 50 severe freeze-thaw cycles (-20 - C to +20 - C) with zero edge crumbling.',
   },
   {
     property: 'Solar Reflectance Index (SRI)',
@@ -164,8 +164,8 @@ export const TECHNICAL_SPECS: TechnicalSpecItem[] = [
   {
     property: 'Dimensional Tolerances',
     standard: 'ASTM C652 (Type HBX)',
-    testedValue: '±1.5 mm on all axes',
-    requirement: '±3.2 mm (HBS) / ±1.6 mm (HBX)',
+    testedValue: ' - 1.5 mm on all axes',
+    requirement: ' - 3.2 mm (HBS) /  - 1.6 mm (HBX)',
     unit: 'mm',
     status: 'EXCEEDS',
     description: 'Precision wire-cut and calibrated steel dies ensuring crisp 8mm or 10mm mortar lines or dry-stacking.',
@@ -188,7 +188,7 @@ export const SEAPORT_SPECS = {
     transitFromMorbi: '4 hours (190 km via NH-27)',
     maxGrossContainerPayloadMT: 27.0,
     handlingCapacity: 'Ultra Large Container Vessels (ULCV) with 17.5m draught',
-    palletLoadingMax: '18 – 20 Pallets (8,100 – 9,000 blocks)',
+    palletLoadingMax: '18  -  20 Pallets (8,100  -  9,000 blocks)',
     linerServices: 'Direct weekly sailings to Jebel Ali (4 days), Rotterdam (18 days), Port Klang (9 days), New York (24 days)',
   },
   nhavaSheva: {
@@ -198,7 +198,7 @@ export const SEAPORT_SPECS = {
     transitFromMorbi: '20 hours (780 km via NH-48)',
     maxGrossContainerPayloadMT: 21.5,
     handlingCapacity: 'NHAI highway statutory axle load weight restricted',
-    palletLoadingMax: '14 – 15 Pallets (6,300 – 6,750 blocks)',
+    palletLoadingMax: '14  -  15 Pallets (6,300  -  6,750 blocks)',
     linerServices: 'Extensive global liner connectivity for Mediterranean, African, and South American lanes',
   },
 }
@@ -232,7 +232,7 @@ export const CAD_PACKAGES: CadPackageItem[] = [
   {
     id: 'bim-revit-families',
     title: '3D BIM Revit Families (.RVT & .RFA)',
-    format: 'Autodesk Revit 2021 – 2026',
+    format: 'Autodesk Revit 2021  -  2026',
     extension: '.rvt',
     fileSize: '28.4 MB',
     category: '3D BIM',
@@ -472,7 +472,7 @@ export function generateBimManifest(patternName: string = 'Star'): string {
         width_mm: 203.2,
         height_mm: 203.2,
         depth_mm: 75.0,
-        tolerance_mm: '±1.5mm (Type HBX)',
+        tolerance_mm: ' - 1.5mm (Type HBX)',
       },
       physicalProperties: {
         compressiveStrength_MPa: 22.8,
@@ -510,9 +510,9 @@ Standard: ASTM C652 (Grade SW, Type HBX) & ASTM C1088
 --------------------------------------------------------------------------------
 Product Family        : Architectural Terracotta Jali & Screen Blocks
 Material Composition  : 100% Natural Alluvial Gujarat Silt Clay
-Firing Temperature    : 1,000°C – 1,050°C (Tunnel Kiln)
+Firing Temperature    : 1,000 - C  -  1,050 - C (Tunnel Kiln)
 Standard Unit Size    : 203.2 mm x 203.2 mm x 75.0 mm (8" x 8" x 3")
-Unit Weight           : 3.20 kg (±0.15 kg)
+Unit Weight           : 3.20 kg ( - 0.15 kg)
 Available Finishes    : Natural Clay, Charcoal, Sand, Ochre (Through-body colored)
 
 2. CERTIFIED ENGINEERING & PHYSICAL PROPERTIES
@@ -524,13 +524,13 @@ Water Absorption (5-hr)  ASTM C67 / IS 3495  7.8% - 8.8%            Max 17.0% (P
 Saturation Coefficient   ASTM C67            0.72 - 0.76            Max 0.78 (PASS)
 Efflorescence            ASTM C67 Sec 10     Nil / Not Effloresced  Nil (PASS)
 Fire Reaction            EN 13501-1/ASTM E136 Class A1 Non-Comb.    Non-Combustible (PASS)
-Bulk Density             ASTM C67            1,950 kg/m³            Min 1,800 kg/m³
-Passive Cooling Effect   Thermal Dynamic     -4°C to -6°C drop      Solar mitigation
+Bulk Density             ASTM C67            1,950 kg/m -             Min 1,800 kg/m - 
+Passive Cooling Effect   Thermal Dynamic     -4 - C to -6 - C drop      Solar mitigation
 Modulus of Rupture       ASTM C67            2.85 - 3.40 MPa        Min 1.50 MPa (PASS)
 Freeze-Thaw Resistance   ASTM C67 (50 cyc.)  0% Mass Loss           Max 3.0% (PASS)
 Solar Reflectance Index  ASTM E1980          SRI 44 (Emittance 0.9) High Reflectance
 Acoustic Transmission    ISO 10140-2         STC 38 dB              Sound Attenuation
-Dimensional Tolerances   ASTM C652 (HBX)     ±1.5 mm                ±1.6 mm (PASS)
+Dimensional Tolerances   ASTM C652 (HBX)      - 1.5 mm                 - 1.6 mm (PASS)
 VOC & Toxicity           LEED v4 / CDPH      0.0 g/L (Zero VOC)     Zero VOC (PASS)
 
 3. EXPORT PACKAGING & CONTAINER LOGISTICS

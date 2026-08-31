@@ -12,7 +12,7 @@ export function Patterns() {
             Move the sun. Watch the shadow.
           </h2>
           <p className="t-body mt-4 max-w-[65ch] text-base text-bone-dim">
-            Experiment with all 15 procedural terracotta jali patterns. Configure parametric wall
+            Experiment with all 17 procedural terracotta jali patterns. Configure parametric wall
             spans, toggle mortar joints, swap artisanal reduction finishes, and scrub solar trajectories
             to observe real-time daylight projection.
           </p>

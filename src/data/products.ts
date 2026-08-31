@@ -161,8 +161,18 @@ export const PRODUCTS: Product[] = [
     slug: 'topaz',
     name: 'Topaz',
     kind: 'jali',
+    pattern: 'topaz',
     poster: '/posters/topaz.webp',
     thumb: '/posters/topaz-thumb.webp',
+  },
+  {
+    slug: 'four-square',
+    name: 'Four Square',
+    kind: 'jali',
+    sizes: ['8 x 8 in'],
+    pattern: 'four-square',
+    poster: '/posters/four-square.webp',
+    thumb: '/posters/four-square-thumb.webp',
   },
   {
     slug: 'lilly',

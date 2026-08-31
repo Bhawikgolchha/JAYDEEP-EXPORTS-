@@ -4,7 +4,7 @@ import { ChapterCourses } from './components/ChapterCourses'
 import { FiringLoader } from './components/FiringLoader'
 import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
-import { LightArgument } from './sections/LightArgument'
+import { Light } from './sections/Light'
 import { Catalogue } from './sections/Catalogue'
 import { PatternViewer } from './sections/PatternViewer'
 import { Bricks } from './sections/Bricks'
@@ -32,7 +32,7 @@ export default function App() {
 
       <main>
         <Hero />
-        <LightArgument />
+        <Light />
         <Catalogue />
         <hr className="joint mx-auto max-w-[1400px]" />
         <PatternViewer />

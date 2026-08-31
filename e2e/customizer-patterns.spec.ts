@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test'
 
-const ALL_15_PATTERNS = [
+const ALL_17_PATTERNS = [
   { id: 'amber', label: 'Amber', keyword: /Petals around an eye/i },
   { id: 'arrow', label: 'Arrow', keyword: /Four fans/i },
   { id: 'circle', label: 'Circle', keyword: /Curved ribs/i },
   { id: 'cross', label: 'Cross', keyword: /solid X/i },
   { id: 'diamond', label: 'Diamond', keyword: /Rhombus/i },
+  { id: 'four-square', label: 'Four Square', keyword: /Four quadrant/i },
   { id: 'leaf', label: 'Leaf', keyword: /blade of light/i },
   { id: 'lotus', label: 'Lotus', keyword: /sacred petals/i },
   { id: 'omega', label: 'Omega', keyword: /Horseshoe arch/i },
@@ -13,8 +14,9 @@ const ALL_15_PATTERNS = [
   { id: 'pearl', label: 'Pearl', keyword: /circular apertures/i },
   { id: 'star', label: 'Star', keyword: /Four eyes/i },
   { id: 'swastik', label: 'Swastik', keyword: /solar meander/i },
+  { id: 'topaz', label: 'Topaz', keyword: /Oculus|circular/i },
   { id: 'tv', label: 'TV', keyword: /Mid-century/i },
-  { id: 'window', label: 'Window', keyword: /most open cut/i },
+  { id: 'window', label: 'Window', keyword: /monolithic square frame|daylighting|open/i },
   { id: 'zebra', label: 'Zebra', keyword: /Angled louvres/i },
 ]
 
@@ -25,15 +27,15 @@ const FINISH_SWATCHES = [
   { id: 'ochre', label: 'Warm Ochre' },
 ]
 
-test.describe('Tier 1 & 2: Interactive 3D Customizer Studio & All 15 Jali Patterns', () => {
+test.describe('Tier 1 & 2: Interactive 3D Customizer Studio & All 17 Jali Patterns', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')
     const studio = page.locator('#patterns')
     await studio.scrollIntoViewIfNeeded()
   })
 
-  test.describe('Comprehensive 15-Pattern Geometric Extrusion Verification', () => {
-    for (const pattern of ALL_15_PATTERNS) {
+  test.describe('Comprehensive 17-Pattern Geometric Extrusion Verification', () => {
+    for (const pattern of ALL_17_PATTERNS) {
       test(`activates ${pattern.label} (${pattern.id}) pattern and renders specific light transmission metadata`, async ({ page }) => {
         const patternSection = page.locator('#patterns')
         const patternBtn = patternSection.locator('button', { hasText: new RegExp(`^${pattern.label}$`, 'i') }).first()

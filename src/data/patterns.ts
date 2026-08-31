@@ -14,6 +14,7 @@ export type PatternId =
   | 'circle'
   | 'cross'
   | 'diamond'
+  | 'four-square'
   | 'leaf'
   | 'lotus'
   | 'omega'
@@ -21,6 +22,7 @@ export type PatternId =
   | 'pearl'
   | 'star'
   | 'swastik'
+  | 'topaz'
   | 'tv'
   | 'window'
   | 'zebra'
@@ -232,17 +234,39 @@ export const PATTERNS: Record<PatternId, Pattern> = {
     ],
   },
 
+  'four-square': {
+    id: 'four-square',
+    label: 'Four Square',
+    light: 'Four quadrant square apertures. Symmetrical geometry providing open balanced airflow and daylighting.',
+    openAreaPct: 48,
+    category: 'geometric',
+    holes: [
+      roundedRect(10, 10, 35, 35, 4),
+      roundedRect(55, 10, 35, 35, 4),
+      roundedRect(10, 55, 35, 35, 4),
+      roundedRect(55, 55, 35, 35, 4),
+    ],
+  },
+
+  topaz: {
+    id: 'topaz',
+    label: 'Topaz',
+    light: 'Large circular Oculus opening. Bold central aperture casting sharp focal sunbeams.',
+    openAreaPct: 40,
+    category: 'geometric',
+    holes: [
+      'M16,50 A34,34 0 1 0 84,50 A34,34 0 1 0 16,50 Z',
+    ],
+  },
+
   window: {
     id: 'window',
     label: 'Window',
-    light: 'The most open cut in the set. Four square lights, maximum airflow.',
-    openAreaPct: 48,
+    light: 'Single monolithic square frame aperture. Maximum continuous sightlines and uninterrupted daylighting.',
+    openAreaPct: 52,
     category: 'minimal',
     holes: [
-      roundedRect(10, 10, 34, 34, 4),
-      roundedRect(56, 10, 34, 34, 4),
-      roundedRect(10, 56, 34, 34, 4),
-      roundedRect(56, 56, 34, 34, 4),
+      roundedRect(14, 14, 72, 72, 5),
     ],
   },
 

@@ -27,10 +27,10 @@ test.describe('Tier 1 & 2: RFQ Drawer & Architectural CAD / BIM Suite', () => {
       await enquireSection.scrollIntoViewIfNeeded()
 
       // Fill name and country
-      const nameInput = enquireSection.locator('input[autoComplete="name"]').first()
+      const nameInput = enquireSection.locator('input[autocomplete="name"]').first()
       await nameInput.fill('Sarah Jenkins')
 
-      const countryInput = enquireSection.locator('input[autoComplete="country-name"]').first()
+      const countryInput = enquireSection.locator('input[autocomplete="country-name"]').first()
       await countryInput.fill('United Kingdom (Port of Felixstowe)')
 
       // Select pattern by value
@@ -46,7 +46,7 @@ test.describe('Tier 1 & 2: RFQ Drawer & Architectural CAD / BIM Suite', () => {
       }
 
       // Submit error messages should be cleared
-      await expect(page.locator('text=/Add your name so we know/i')).not.toBeVisible()
+      await expect(page.getByText(/Add your name so we know/i)).not.toBeVisible()
     })
   })
 

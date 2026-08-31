@@ -37,6 +37,26 @@ test.describe('Narrative Stages 1-5 & WebGL Scrollytelling Suite', () => {
       const stageContainer = heroSection.locator('img, canvas').first()
       await expect(stageContainer).toBeVisible()
     })
+
+    test('verifies interactive 3D movable hero controls and pattern switching', async ({ page }) => {
+      const heroSection = page.locator('#top')
+      await expect(heroSection.locator('text=DRAG TO ROTATE 360°').first()).toBeVisible()
+
+      // Test switching to Window pattern
+      const windowBtn = heroSection.locator('button', { hasText: /^Window$/i }).first()
+      await expect(windowBtn).toBeVisible()
+      await windowBtn.click()
+
+      // Test switching to Four Square pattern
+      const fourSquareBtn = heroSection.locator('button', { hasText: /^Four Square$/i }).first()
+      await expect(fourSquareBtn).toBeVisible()
+      await fourSquareBtn.click()
+
+      // Test switching to Topaz pattern
+      const topazBtn = heroSection.locator('button', { hasText: /^Topaz$/i }).first()
+      await expect(topazBtn).toBeVisible()
+      await topazBtn.click()
+    })
   })
 
   test.describe('Stage 2: 1000°C Kiln Firing & Material Science (Made Section)', () => {

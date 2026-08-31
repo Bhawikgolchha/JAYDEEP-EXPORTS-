@@ -67,6 +67,8 @@ export function Catalogue() {
                 key={p.slug}
                 initial={reduce ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={reduce ? {} : { scale: 1.04, y: -4, transition: { duration: 0.22, ease: 'easeOut' } }}
+                whileTap={reduce ? {} : { scale: 0.98 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.5,

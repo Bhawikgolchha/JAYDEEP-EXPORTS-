@@ -102,12 +102,12 @@ const CLAIMS = [
     metric: '92% Privacy Index',
   },
   {
-    head: 'Venturi Passive Airflow',
+    head: 'Air keeps moving.',
     body: 'Narrowing tapered terracotta geometry accelerates natural airflow through perforated openings, dropping indoor ambient temperatures naturally.',
-    metric: '-4°C to -6°C Delta',
+    metric: '-4°C to -6°C Delta (Venturi Airflow)',
   },
   {
-    head: 'Filtered Geometric Daylighting',
+    head: 'The glare goes, the daylight stays.',
     body: 'Deep 75mm block extrusion cuts intense solar glare while casting dynamic, living dappled shadows across floors and walls throughout the day.',
     metric: '100% Non-Glare Lux',
   },
@@ -235,25 +235,28 @@ export function Light() {
         </div>
 
         {/* 3 Architectural Claims */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {CLAIMS.map((c, i) => (
-            <motion.div
-              key={c.head}
-              className="border border-kiln-3 bg-kiln-2 p-6"
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="border border-ember/30 bg-kiln px-2 py-0.5 font-mono text-xs text-ember">
-                {c.metric}
-              </span>
-              <h3 className="mt-4 text-xl text-bone" style={{ fontStretch: '108%' }}>
-                {c.head}
-              </h3>
-              <p className="t-body mt-2 text-sm leading-relaxed">{c.body}</p>
-            </motion.div>
-          ))}
+        <div className="mt-16">
+          <h3 className="t-display text-2xl text-bone mb-6">A screen does three jobs at once.</h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {CLAIMS.map((c, i) => (
+              <motion.div
+                key={c.head}
+                className="border border-kiln-3 bg-kiln-2 p-6"
+                initial={reduce ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.55, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="border border-ember/30 bg-kiln px-2 py-0.5 font-mono text-xs text-ember">
+                  {c.metric}
+                </span>
+                <h4 className="mt-4 text-xl text-bone" style={{ fontStretch: '108%' }}>
+                  {c.head}
+                </h4>
+                <p className="t-body mt-2 text-sm leading-relaxed">{c.body}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

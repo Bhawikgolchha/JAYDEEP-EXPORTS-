@@ -1,55 +1,84 @@
-import { lazy } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { Stage } from '../three/Stage'
-
-const HeroScene = lazy(() => import('../three/HeroScene'))
+import { MovableHeroCanvas } from '../components/MovableHeroCanvas'
 
 export function Hero() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="top" className="relative min-h-[100dvh] w-full">
-      <Stage
-        poster="/video/hero-wall-poster.webp"
-        video="hero-wall"
-        alt="Sunlight passing through a terracotta jali wall and printing its pattern across a dark floor"
-        className="absolute inset-0"
-      >
-        <HeroScene />
-      </Stage>
+    <section id="top" className="relative min-h-[100dvh] w-full overflow-hidden bg-kiln">
+      {/* 3D Movable & 360° Rotatable WebGL Canvas */}
+      <div className="absolute inset-0 z-0">
+        <MovableHeroCanvas initialPattern="window" initialFinish="natural" />
+      </div>
 
-      {/* legibility scrim. sits under the type only, so the wall stays the picture. */}
+      {/* Radial atmospheric scrim to preserve typography contrast */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            'linear-gradient(to top, rgba(20,16,14,0.94) 6%, rgba(20,16,14,0.72) 38%, transparent 100%)',
+            'radial-gradient(circle at 65% 50%, rgba(20,16,14,0.25) 0%, rgba(20,16,14,0.85) 60%, rgba(20,16,14,0.98) 100%)',
         }}
       />
 
-      <div className="relative flex min-h-[100dvh] flex-col justify-end px-4 pb-14 pt-24 sm:px-6 md:pb-20">
-        <motion.div
-          className="mx-auto w-full max-w-[1400px]"
-          initial={reduce ? false : { opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        >
-          <h1 className="t-display max-w-[14ch] text-[clamp(2.6rem,11vw,5.5rem)]">
-            Cut clay. Filtered sun.
-          </h1>
+      {/* Editorial Content Overlay */}
+      <div className="relative z-10 flex min-h-[100dvh] flex-col justify-between px-4 pb-20 pt-24 sm:px-6 md:pb-24 lg:px-12 pointer-events-none">
+        {/* Top Header Tag */}
+        <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between pointer-events-auto">
+          <div className="flex items-center gap-3">
+            <span className="border border-ember/40 bg-ember/15 px-3 py-1 font-mono text-xs font-semibold text-ember">
+              STAGE 1: 3D INTERACTIVE MONOLITH
+            </span>
+            <span className="hidden font-mono text-xs text-bone-dim sm:inline-block">
+              ASTM C652 / IS 1077 COMPLIANT
+            </span>
+          </div>
 
-          <p className="t-body mt-5 text-base sm:text-lg">
-            Terracotta jali screens and perforated clay bricks. Twenty eight cuts, pressed and
-            fired, packed for export.
-          </p>
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-ember animate-pulse" />
+            <span className="font-mono text-xs text-bone">EXPORT DISPATCH: MUNDRA / NHAVA SHEVA</span>
+          </div>
+        </div>
 
-          {/* one label per intent, used identically in the nav, here and in the footer */}
-          <a href="#enquire" className="cta mt-8 inline-flex">
-            Enquire
-          </a>
-        </motion.div>
+        {/* Main Hero Copy */}
+        <div className="mx-auto w-full max-w-[1400px]">
+          <motion.div
+            className="max-w-2xl pointer-events-auto"
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+          >
+            <h1 className="t-display text-[clamp(2.8rem,9vw,5.6rem)] leading-[0.95]">
+              Cut clay. <br />
+              <span className="text-ember">Filtered sun.</span>
+            </h1>
+
+            <p className="t-body mt-6 max-w-xl text-base leading-relaxed text-bone sm:text-lg">
+              Architectural terracotta jali screens, wirecut perforated bricks, and monolithic clay
+              facades. High-temperature 1000°C kiln fired, micro-porous unglazed finish, engineered for
+              global export.
+            </p>
+
+            {/* CTA Group */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#enquire" className="cta inline-flex">
+                Enquire
+              </a>
+              <a
+                href="#patterns"
+                className="border border-kiln-3 bg-kiln-2 px-6 py-3 text-sm text-bone transition-colors hover:border-ember hover:text-ember"
+              >
+                Explore 17+ Patterns
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Space reservation for bottom HUD */}
+        <div className="h-10 sm:h-12" />
       </div>
     </section>
   )
 }
+
+export default Hero
