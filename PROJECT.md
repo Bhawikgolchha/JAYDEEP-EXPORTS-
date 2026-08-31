@@ -23,7 +23,7 @@
 | 12 | ASTM C652 & C1088 Spec Sheet Suite | Engineering physical/mechanical data display (compressive strength >15MPa, water absorption <9%, efflorescence nil, fire Class A1) | M3 | ORIGINAL_REQUEST R4, Explorer 3 |
 | 13 | Architectural CAD / BIM Downloader Modal | Downloader modal for 2D CAD (.DWG/.DXF), 3D BIM (.RVT/.RFA), 3D Mesh (.OBJ/.GLTF/.SKP), PBR Textures, and certified TDS PDF | M3 | ORIGINAL_REQUEST R4, Explorer 3 |
 | 14 | Multi-Product RFQ Drawer | Cart drawer supporting multi-item selection, finish choices, specifier details validation, shipping terms (FOB/CIF), and port selector | M3 | ORIGINAL_REQUEST R4, Explorer 3 |
-| 15 | Structured WhatsApp & Email Payload Generator | Automated generation of structured WhatsApp quote link (`wa.me/919227738035`) and RFC-compliant mailto drafts | M3 | ORIGINAL_REQUEST R4, Explorer 3 |
+| 15 | Structured WhatsApp & Email Payload Generator | Automated generation of structured WhatsApp quote link (`wa.me/918460212807`) and RFC-compliant mailto drafts | M3 | ORIGINAL_REQUEST R4, Explorer 3 |
 | 16 | Swiss/Brutalist Editorial Design System | Typography hierarchy using Archivo variable font, deep charcoal/clay color tokens, strict 0px border radius with pill CTA, raking light | M4 | ORIGINAL_REQUEST R5, Explorer 3 |
 | 17 | Progressive Asset Preloader & Firing Animation | Thermal kiln firing animation preloader with font & asset readiness checks and 2.5s fallback timeout | M4 | ORIGINAL_REQUEST R5, Explorer 3 |
 | 18 | WCAG 2.1 AA Accessibility & Keyboard Navigation | High-contrast terracotta focus rings, skip navigation links, dialog focus traps, Escape key dismissals, ARIA semantics | M4 | ORIGINAL_REQUEST R5, Explorer 3 |

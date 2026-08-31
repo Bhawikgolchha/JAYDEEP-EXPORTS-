@@ -139,7 +139,7 @@ test.describe('Tier 1 & 2: Specifier Suite & Export Logistics Engine', () => {
       await expect(waLink).toBeVisible()
 
       const href = await waLink.getAttribute('href')
-      expect(href).toContain('wa.me/919227738035')
+      expect(href).toContain('wa.me/918460212807')
       expect(href).toContain('text=')
       // Verify decoded text contains key specifier data
       const decoded = decodeURIComponent(href || '')

@@ -6,10 +6,10 @@
 
 export const CONTACT = {
   person: 'Gautam Bhansali',
-  phones: ['+91 92277 38035', '+91 84602 12807'],
+  phones: ['+91 84602 12807', '+91 92277 38035'],
   emails: ['jaydeepexporrts@gmail.com', 'nationalpotteries1967@gmail.com'],
   /** digits only, no plus or spaces */
-  whatsapp: '919227738035',
+  whatsapp: '918460212807',
   address: {
     lines: ['C-10, Parshwanath Complex 2', 'Opp. Kuber Cinema, 8-A National Highway'],
     city: 'Morbi',
