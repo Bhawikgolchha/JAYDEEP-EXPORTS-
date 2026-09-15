@@ -55,3 +55,27 @@ the sun sat directly in front of the wall and threw its shadow straight backward
 the wall itself hid it. The control looked broken at exactly the position most people
 would leave it. Prevention: when an angle drives a visible effect, check the effect at
 both ends and the middle, and clip the range so no position is degenerate.
+
+## 2026-09-15 - GitHub Pages deploy: GITHUB_TOKEN cannot create a Pages site
+The Actions `configure-pages` step fails with "Resource not accessible by integration" on a
+repo that never had Pages enabled. No workflow config fixes it — GitHub forbids the
+integration token from creating a Pages site; only the account owner (or a user PAT with
+repo scope) can. Fix as an agent: `gh api --method POST repos/OWNER/REPO/pages -f
+build_type=workflow` with the user-authenticated gh CLI, then rerun the failed job with
+`gh run rerun <id> --failed`. Keep `enablement: true` on configure-pages for future repos
+and the workflow stays idempotent.
+
+## 2026-09-15 - Software-rendered WebGL makes Playwright clicks time out on CI only
+69 tests pass locally (GPU) but fail on GitHub Actions: the 60fps R3F canvas + looping
+videos keep the page "busy", so `locator.click` finishes the click then hangs on "waiting
+for scheduled navigations", and scrollIntoViewIfNeeded hangs on "waiting for element to be
+stable". Evidence in the failure snapshot: the target button shows [active] — the click
+succeeded, the wait killed it. Fix: single worker on CI (2 cores contending for one
+software canvas), actionTimeout 15s→25s, and retries: 2 on CI (artifact still uploaded for
+evidence). Diagnose via the uploaded error-context.md before touching tests.
+
+## 2026-09-15 - Vite subpath hosting: set base conditionally, not globally
+GitHub Pages serves the repo under /REPO-NAME/. A hardcoded base in vite.config.ts would
+break local dev and Vercel root hosting. Fix: `base: process.env.GH_PAGES === 'true' ?
+'/JAYDEEP-EXPORTS-/' : '/'` and export GH_PAGES=true only in the deploy job. Never make the
+Pages deploy depend on a manual settings click when gh CLI can do it codified instead.
