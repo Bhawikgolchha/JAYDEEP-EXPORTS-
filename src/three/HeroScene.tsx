@@ -18,7 +18,7 @@ export default function HeroScene() {
       gl={{ antialias: high, powerPreference: 'high-performance' }}
       camera={{ position: [0.6, 0.35, 5.4], fov: 42 }}
     >
-      <color attach="background" args={['#14100e']} />
+      <color attach="background" args={['#1a120c']} />
       <fog attach="fog" args={['#14100e', 7, 15]} />
       <JaliWall quality={high ? 'high' : 'low'} />
     </Canvas>

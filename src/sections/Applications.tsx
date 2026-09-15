@@ -15,7 +15,7 @@ export function Applications() {
           aria-hidden="true"
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to top, rgba(20,16,14,0.95) 4%, transparent 52%)',
+            background: 'linear-gradient(to top, rgba(26,18,12,0.95) 4%, transparent 52%)',
           }}
         />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-10 sm:px-6">

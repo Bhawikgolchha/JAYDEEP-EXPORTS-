@@ -296,7 +296,7 @@ export function StageNarrative({
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         camera={{ position: [0.35, 0.25, 3.8], fov: 38 }}
       >
-        <color attach="background" args={['#14100e']} />
+        <color attach="background" args={['#1a120c']} />
         <fog attach="fog" args={['#14100e', 6, 16]} />
         <SunRig mapSize={2048} extent={4.2} />
 

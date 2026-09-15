@@ -11,7 +11,7 @@ export function Made() {
   const [isCadModalOpen, setIsCadModalOpen] = useState(false)
 
   return (
-    <section id="made" className="pb-24 md:pb-32">
+    <section id="made" className="bg-ground-ash pb-24 md:pb-32">
       <div className="mx-auto grid max-w-[1400px] gap-8 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] md:gap-12">
         <div className="aspect-[4/3] w-full overflow-hidden border border-kiln-3">
           <Clip

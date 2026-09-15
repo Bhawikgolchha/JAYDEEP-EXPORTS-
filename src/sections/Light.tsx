@@ -146,7 +146,7 @@ export function Light() {
   }
 
   return (
-    <section id="light" className="relative bg-kiln pb-24 pt-10 md:pb-32">
+    <section id="light" className="relative bg-ground-ember pb-24 pt-10 md:pb-32">
       {/* 3D Modernist Villa Viewport */}
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
@@ -172,7 +172,7 @@ export function Light() {
             gl={{ antialias: true, powerPreference: 'high-performance' }}
             camera={{ position: [0.8, 0.4, 4.4], fov: 40 }}
           >
-            <color attach="background" args={['#14100e']} />
+            <color attach="background" args={['#1a120c']} />
             <fog attach="fog" args={['#14100e', 6, 16]} />
             <VillaFacadeMesh pattern={pattern} sunProgress={sunValue} />
           </Canvas>

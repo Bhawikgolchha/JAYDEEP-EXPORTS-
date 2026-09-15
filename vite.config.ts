@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // GitHub Pages serves the repo under /JAYDEEP-EXPORTS-/; local dev and Vercel
+  // stay at the root. set GH_PAGES=true at build time to switch the base.
+  base: process.env.GH_PAGES === 'true' ? '/JAYDEEP-EXPORTS-/' : '/',
   build: {
     rollupOptions: {
       output: {

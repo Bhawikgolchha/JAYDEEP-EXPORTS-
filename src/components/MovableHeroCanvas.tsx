@@ -159,7 +159,7 @@ export function MovableHeroCanvas({
       style={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'none' }}
     >
       <Canvas shadows dpr={[1, 1.75]} gl={{ antialias: true, powerPreference: 'high-performance' }} camera={{ position: [0, 0, 4.2], fov: 38 }}>
-        <color attach="background" args={['#14100e']} />
+        <color attach="background" args={['#1a120c']} />
         <fog attach="fog" args={['#14100e', 6, 14]} />
         <ClayDustParticles count={70} />
         <InteractiveMonolith pattern={selectedPattern} finish={selectedFinish} isDragging={isDragging} rotVelocity={rotVelocity} manualRotation={manualRotation} />

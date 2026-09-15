@@ -287,7 +287,7 @@ export function JaliTile({
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         camera={{ position: [0.35, 0.25, 4.2], fov: 38 }}
       >
-        <color attach="background" args={['#14100e']} />
+        <color attach="background" args={['#1a120c']} />
         <fog attach="fog" args={['#14100e', 6, 14]} />
         <SunRig mapSize={quality === 'high' ? 2048 : 1024} extent={2.5} />
         <JaliTileMesh

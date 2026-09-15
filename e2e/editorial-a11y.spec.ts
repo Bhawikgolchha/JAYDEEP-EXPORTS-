@@ -7,11 +7,11 @@ test.describe('Tier 1 & 2: Swiss/Brutalist Editorial Design Tokens & WCAG 2.1 AA
 
   test.describe('Swiss / Brutalist Architectural Design Tokens', () => {
     test('verifies dark charcoal clay background and bone typography color tokens', async ({ page }) => {
-      // Body ground background color should be dark charcoal clay #14100e (rgb(20, 16, 14))
+      // Body ground background color should be sun-warmed dark charcoal clay #1a120c (rgb(26, 18, 12))
       const bodyBg = await page.evaluate(() => {
         return window.getComputedStyle(document.body).backgroundColor
       })
-      expect(bodyBg).toBe('rgb(20, 16, 14)')
+      expect(bodyBg).toBe('rgb(26, 18, 12)')
 
       // Primary heading typography color should be bone #efe7dc (rgb(239, 231, 220))
       const h1Color = await page.evaluate(() => {

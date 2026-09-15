@@ -14,7 +14,7 @@ export function Bricks() {
   const [open, setOpen] = useState<Product | null>(null)
 
   return (
-    <section id="bricks" className="pb-24 md:pb-32">
+    <section id="bricks" className="bg-ground-sand pb-24 md:pb-32">
       <div className="mx-auto mb-8 max-w-[1400px] px-4 sm:px-6">
         <h2 className="t-display max-w-[18ch] text-[clamp(1.9rem,5.6vw,3.4rem)]">
           And the bricks that hold them up.

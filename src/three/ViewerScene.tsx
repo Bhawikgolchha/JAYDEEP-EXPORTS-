@@ -22,7 +22,7 @@ export default function ViewerScene({
       gl={{ antialias: high, powerPreference: 'high-performance' }}
       camera={{ position: [1.55, 0.7, 3.2], fov: 40 }}
     >
-      <color attach="background" args={['#14100e']} />
+      <color attach="background" args={['#1a120c']} />
       {/* fog pulls the far floor and wall back down to the page ground, so the stage
           has no visible edges and the section stays dark */}
       <fog attach="fog" args={['#14100e', 4.6, 11]} />

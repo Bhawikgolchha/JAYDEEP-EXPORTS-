@@ -35,7 +35,7 @@ export function LightArgument() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(20,16,14,0.98) 2%, rgba(20,16,14,0.35) 46%, rgba(20,16,14,0.55) 100%)',
+              'linear-gradient(to top, rgba(26,18,12,0.98) 2%, rgba(26,18,12,0.35) 46%, rgba(26,18,12,0.55) 100%)',
           }}
         />
 

@@ -288,7 +288,7 @@ export function PalletScene({
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         camera={{ position: [2.2, 1.4, 2.6], fov: 38 }}
       >
-        <color attach="background" args={['#14100e']} />
+        <color attach="background" args={['#1a120c']} />
         <fog attach="fog" args={['#14100e', 6, 14]} />
         <SunRig mapSize={2048} extent={3.0} />
 

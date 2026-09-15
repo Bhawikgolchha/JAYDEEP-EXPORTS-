@@ -8,14 +8,25 @@
    which fails AA for body text. Links are bone with an underline instead. */
 
 :root {
-  --kiln: #14100e; /* body ground, charcoal clay. not pure black */
-  --kiln-2: #1d1815; /* raised surface, inputs, chips */
-  --kiln-3: #272019; /* hairline / mortar joint */
+  --kiln: #1a120c; /* body ground, sun-warmed charcoal clay. not pure black */
+    --kiln-2: #241b12; /* raised surface, inputs, chips */
+    --kiln-3: #2e2418; /* hairline / mortar joint */
   --bone: #efe7dc; /* primary type, lime plaster */
   --bone-dim: #a79b8c; /* secondary type */
   --indigo: #2b3a8f; /* single accent. fill only */
   --indigo-lit: #4356c4; /* accent hover fill */
   --ember: #ce6d38; /* clay. 3D material, focus ring, selection. never UI chrome */
+
+  /* chapter grounds: each stage of the material journey gets its own earth, so the
+     page reads as a sequence of places rather than one dark room. all dark enough
+     for --bone type at >13:1. lime is the catalogue: a plaster wall the products
+     hang on, so its type is ink-on-lime, not bone. */
+  --lime: #e6dcc9; /* lime plaster ground. catalogue chapter */
+  --lime-ink: #2b2115; /* fired-clay brown ink on lime */
+  --lime-dim: #6f6250; /* secondary type on lime */
+  --ground-ember: #1e110c; /* fired clay. light / sunstage chapter */
+  --ground-sand: #221a13; /* sand floor. bricks chapter on the drying yard */
+  --ground-ash: #1b1716; /* kiln ash. made chapter */
 
   /* one shape system: everything is cut square. only the primary CTA is a pill */
   --r-none: 0px;

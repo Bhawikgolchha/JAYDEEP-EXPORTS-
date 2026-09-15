@@ -387,7 +387,7 @@ export function CoverageCalc() {
                       fillRule="evenodd"
                       fill="#b4552c"
                     />
-                    <rect width="100" height="100" fill="none" stroke="#1d1815" strokeWidth="2" />
+                    <rect width="100" height="100" fill="none" stroke="#241b12" strokeWidth="2" />
                   </pattern>
                 </defs>
                 <rect width={width} height={height} fill="#241d18" />

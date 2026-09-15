@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'daimond',
-    name: 'Daimond',
+    name: 'Diamond',
     kind: 'jali',
     pattern: 'diamond',
     poster: '/posters/daimond.webp',
@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'opel',
-    name: 'Opel',
+    name: 'Opal',
     kind: 'jali',
     pattern: 'opal',
     poster: '/posters/opel.webp',
@@ -191,7 +191,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'capsul',
-    name: 'Capsul',
+    name: 'Capsule',
     kind: 'brick',
     poster: '/posters/capsul.webp',
     thumb: '/posters/capsul-thumb.webp',

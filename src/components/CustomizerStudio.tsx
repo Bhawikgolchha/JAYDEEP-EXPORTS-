@@ -318,14 +318,14 @@ export function CustomizerStudio() {
       {/* Main Grid: 3D Viewport on Left, Control Suite on Right */}
       <div className="grid gap-0 lg:grid-cols-[1.25fr_1fr]">
         {/* 3D Canvas Viewport */}
-        <div className="relative min-h-[420px] sm:min-h-[520px] bg-[#14100e] border-b lg:border-b-0 lg:border-r border-kiln-3">
+        <div className="relative min-h-[420px] sm:min-h-[520px] bg-[#1a120c] border-b lg:border-b-0 lg:border-r border-kiln-3">
           <Canvas
             shadows
             dpr={[1, 1.75]}
             camera={{ position: [1.6, 0.8, 3.4], fov: 42 }}
             gl={{ antialias: true, powerPreference: 'high-performance' }}
           >
-            <color attach="background" args={['#14100e']} />
+            <color attach="background" args={['#1a120c']} />
             <fog attach="fog" args={['#14100e', 5, 14]} />
             <Suspense fallback={null}>
               <CustomizerScene state={state} />
@@ -412,8 +412,8 @@ export function CustomizerStudio() {
               </span>
             </div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 bg-kiln-3 p-1.5 max-h-56 overflow-y-auto">
-              {PATTERN_IDS.map((id) => {
+            <div className="flex max-h-[340px] flex-col overflow-y-auto border border-kiln-3 bg-kiln-2">
+              {PATTERN_IDS.map((id, i) => {
                 const active = id === state.pattern
                 return (
                   <button
@@ -421,20 +421,28 @@ export function CustomizerStudio() {
                     type="button"
                     onClick={() => setPattern(id)}
                     aria-pressed={active}
-                    className={`flex flex-col items-center gap-1 p-2 text-center transition-all ${
+                    className={`flex items-center gap-3 text-left transition-all ${
                       active
-                        ? 'bg-bone text-kiln font-medium ring-1 ring-ember'
-                        : 'bg-kiln text-bone-dim hover:bg-kiln-2 hover:text-bone'
+                        ? 'bg-bone text-kiln font-medium shadow-[inset_3px_0_0_var(--ember)]'
+                        : 'text-bone-dim hover:bg-kiln-3 hover:text-bone'
                     }`}
                   >
-                    <svg viewBox="0 0 100 100" className="h-7 w-7 shrink-0" aria-hidden="true">
+                    <span className="t-spec w-8 shrink-0 text-[11px]" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <svg viewBox="0 0 100 100" className={`h-5 w-5 shrink-0 ${active ? 'text-ember' : ''}`} aria-hidden="true">
                       <path
                         d={`M0,0 H100 V100 H0 Z ${PATTERNS[id].holes.join(' ')}`}
                         fillRule="evenodd"
                         fill={active ? '#14100e' : '#ce6d38'}
                       />
                     </svg>
-                    <span className="text-[11px] truncate w-full">{PATTERNS[id].label}</span>
+                    <span className="text-xs truncate w-full" style={{ fontStretch: '92%' }}>
+                      {PATTERNS[id].label}
+                    </span>
+                    <span className="t-spec text-[10px] text-bone-dim shrink-0">
+                      {active ? `${activePatternObj.openAreaPct}% open` : ''}
+                    </span>
                   </button>
                 )
               })}
